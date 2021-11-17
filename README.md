@@ -98,9 +98,9 @@ Ranking events are stored in `dataset/ranking.jsonl.gz` file in a JSONL format.
 {
   "id": 6259,
   "liked": [
-    78,
-    80,
-    89
+    4002,
+    21,
+    46970
   ],
   "shown": [
     1805,
