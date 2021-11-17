@@ -5,6 +5,15 @@ This dataset is a MovieLens-based crowd-sourced training data for ranking models
 * Rankings for 2100 visitors for random movie groups.
 * Each visitor interacted with ~5 groups, and marked >1 movies as liked.
 
+Dataset is built using [toloka.ai](https://toloka.ai) platform with real humans and contains no synthetic data.
+
+## Data and tools
+
+* the actual dataset is located in the [dataset](https://github.com/metarank/ranklens/tree/master/dataset) directory.
+* code used to generate the dataset is available in [converter](https://github.com/metarank/ranklens/tree/master/converter) subproject.
+* source data is in [raw](https://github.com/metarank/ranklens/tree/master/raw) directory.
+
+Source data is anonymized and contains only abstract random user identifiers.
 
 ## Movie metadata
 
