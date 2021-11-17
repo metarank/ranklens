@@ -17,6 +17,8 @@ Source data is anonymized and contains only abstract random user identifiers.
 
 ## Movie metadata
 
+Movie metadata is stored in `dataset/metadata.jsonl.gz` file in a JSONL format.
+
 Example record for a movie:
 ```json
 {
@@ -89,6 +91,9 @@ Example record for a movie:
 ```
 
 ## Ranking event example
+
+Ranking events are stored in `dataset/ranking.jsonl.gz` file in a JSONL format.
+
 ```json
 {
   "id": 6259,
