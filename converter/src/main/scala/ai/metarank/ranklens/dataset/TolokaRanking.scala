@@ -46,7 +46,7 @@ object TolokaRanking {
         index <- header.get(s"OUTPUT:result_$id")
         if cols(index) == "true"
       } yield {
-        index
+        cols(header(s"INPUT:id_$id")).toInt
       }
       val task = cols(header("INPUT:task"))
       val ts   = cols(header("ASSIGNMENT:started"))
