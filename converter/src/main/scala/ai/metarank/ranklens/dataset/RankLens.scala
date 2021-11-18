@@ -3,7 +3,7 @@ package ai.metarank.ranklens.dataset
 import ai.metarank.ranklens.dataset.RankLens.Movie
 import ai.metarank.ranklens.dataset.TolokaRanking.Task
 import better.files.File
-import io.circe.Codec
+import io.circe.{Codec, Decoder}
 import io.circe.generic.semiauto._
 import io.circe.syntax._
 import io.circe.parser._
@@ -90,10 +90,16 @@ object RankLens {
     new RankLens(movies.filter(id => rankedMovies.contains(id.id)), toloka.tasks)
   }
 
-  def read(file: File) = {
-    val movies = file.lineIterator
-      .map(line => decode[Movie](line))
-      .foldLeft(List.empty[Movie])((acc, result) =>
+  def read(dir: File) = {
+    val movies  = parseJSONL[Movie](dir / "metadata.jsonl")
+    val actions = parseJSONL[Task](dir / "ranking.jsonl")
+    new RankLens(movies, actions)
+  }
+
+  private def parseJSONL[T: Decoder](file: File): List[T] = {
+    file.lineIterator
+      .map(line => decode[T](line))
+      .foldLeft(List.empty[T])((acc, result) =>
         result match {
           case Left(err) =>
             println(s"cannot parse: $err")
@@ -101,6 +107,5 @@ object RankLens {
           case Right(value) => value +: acc
         }
       )
-    new RankLens(movies, Nil)
   }
 }
