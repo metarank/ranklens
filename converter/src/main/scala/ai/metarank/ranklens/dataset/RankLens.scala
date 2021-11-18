@@ -40,7 +40,8 @@ object RankLens {
       topActors: List[Cast],
       director: Option[Cast],
       writer: Option[Cast],
-      tags: List[String]
+      tags: List[String],
+      poster: Option[String]
   )
   case class Cast(id: Int, name: String, gender: Int, popularity: Double)
   case class Genre(id: Int, name: String)
@@ -83,7 +84,8 @@ object RankLens {
           .sortBy(-_.popularity)
           .headOption
           .map(c => Cast(c.id, c.name, c.gender, c.popularity)),
-        tags = mlMovie.tags
+        tags = mlMovie.tags,
+        poster = tmdbMovie.poster_path.map(suffix => "https://image.tmdb.org/t/p/original" + suffix)
       )
     }
     val rankedMovies = toloka.tasks.flatMap(_.shown).toSet
