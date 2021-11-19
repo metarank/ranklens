@@ -9,6 +9,7 @@ import io.circe.syntax._
 import io.circe.parser._
 
 import java.nio.charset.StandardCharsets
+import java.time.format.DateTimeFormatter
 import java.time.{LocalDate, LocalDateTime}
 
 case class RankLens(movies: List[Movie], actions: List[Task]) {
@@ -34,7 +35,7 @@ object RankLens {
       tmdbPopularity: Double,
       tmdbVoteCount: Long,
       tmdbVoteAverage: Double,
-      releaseDate: Long,
+      releaseDate: String,
       revenue: Double,
       runtime: Int,
       topActors: List[Cast],
@@ -67,7 +68,7 @@ object RankLens {
         tmdbPopularity = tmdbMovie.popularity,
         tmdbVoteCount = tmdbMovie.vote_count,
         tmdbVoteAverage = tmdbMovie.vote_average,
-        releaseDate = LocalDate.parse(tmdbMovie.release_date, Tmdb.dateFormat).toEpochDay,
+        releaseDate = LocalDate.parse(tmdbMovie.release_date, Tmdb.dateFormat).format(DateTimeFormatter.ISO_DATE),
         revenue = tmdbMovie.revenue,
         runtime = tmdbMovie.runtime,
         topActors = movieCast.cast

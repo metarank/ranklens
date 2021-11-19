@@ -22,14 +22,18 @@ Movie metadata is stored in `dataset/metadata.jsonl.gz` file in a JSONL format.
 Example record for a movie:
 ```json
 {
-  "budget": 0,
+  "budget": 90000000,
   "director": {
     "gender": 2,
-    "id": 56106,
-    "name": "Charles Shyer",
-    "popularity": 0.751
+    "id": 7879,
+    "name": "John Lasseter",
+    "popularity": 4.32
   },
   "genres": [
+    {
+      "id": 16,
+      "name": "Animation"
+    },
     {
       "id": 35,
       "name": "Comedy"
@@ -39,53 +43,51 @@ Example record for a movie:
       "name": "Family"
     }
   ],
-  "id": 5,
-  "overview": "Just when George Banks has recovered from his daughter's wedding, he receives the news that she's pregnant ... and that George's wife is expecting too. He was planning on selling their home, but that's a plan that—like George—will have to change with the arrival of both a grandchild and a kid of his own.",
-  "releaseDate": 9472,
-  "revenue": 76594107,
-  "runtime": 106,
+  "id": 3114,
+  "overview": "Andy heads off to Cowboy Camp, leaving his toys to their own devices. Things shift into high gear when an obsessive toy collector named Al McWhiggen, owner of Al's Toy Barn kidnaps Woody. Andy's toys mount a daring rescue mission, Buzz Lightyear meets his match and Woody has to decide where he and his heart truly belong.",
+  "poster": "https://image.tmdb.org/t/p/original/xVhEI1WCgNCCa5I86AqiwuZoog3.jpg",
+  "releaseDate": "1999-10-30",
+  "revenue": 497366869,
+  "runtime": 92,
   "tags": [
-    "steve martin",
-    "wedding",
-    "pregnancy",
-    "family",
-    "daughter",
-    "touching",
-    "midlife crisis",
-    "gynecologist",
-    "contraception",
-    "confidence"
+    "pixar",
+    "disney",
+    "animation",
+    "computer animation",
+    "sequel",
+    "tom hanks",
+    "funny"
   ],
-  "title": "Father of the Bride Part II",
-  "tmdbId": 11862,
-  "tmdbPopularity": 11.633,
-  "tmdbVoteAverage": 6.3,
-  "tmdbVoteCount": 529,
+  "title": "Toy Story 2",
+  "tmdbId": 863,
+  "tmdbPopularity": 112.767,
+  "tmdbVoteAverage": 7.6,
+  "tmdbVoteCount": 11025,
   "topActors": [
     {
       "gender": 2,
-      "id": 18793,
-      "name": "Kieran Culkin",
-      "popularity": 9.054
+      "id": 31,
+      "name": "Tom Hanks",
+      "popularity": 29.979
     },
     {
       "gender": 1,
-      "id": 3092,
-      "name": "Diane Keaton",
-      "popularity": 8.421
+      "id": 3234,
+      "name": "Joan Cusack",
+      "popularity": 11.631
     },
     {
       "gender": 2,
-      "id": 519,
-      "name": "Martin Short",
-      "popularity": 6.453
+      "id": 15831,
+      "name": "Frank Welker",
+      "popularity": 10.184
     }
   ],
   "writer": {
     "gender": 2,
-    "id": 26160,
-    "name": "Albert Hackett",
-    "popularity": 1.628
+    "id": 7,
+    "name": "Andrew Stanton",
+    "popularity": 3.097
   }
 }
 ```
