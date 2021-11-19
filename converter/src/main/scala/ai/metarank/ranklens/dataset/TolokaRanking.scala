@@ -22,7 +22,7 @@ case class TolokaRanking(tasks: List[Task]) {
 
 object TolokaRanking {
   val tsFormat = DateTimeFormatter.ISO_DATE_TIME
-  case class Task(ts: Long, id: Int, user: String, shown: List[Int], liked: List[Int])
+  case class Task(ts: String, id: Int, user: String, shown: List[Int], liked: List[Int])
 
   implicit val taskCodec: Codec[Task] = deriveCodec
 
@@ -52,7 +52,7 @@ object TolokaRanking {
       val ts   = cols(header("ASSIGNMENT:started"))
       val user = cols(header("ASSIGNMENT:worker_id"))
       Task(
-        ts = LocalDateTime.parse(ts, tsFormat).toEpochSecond(ZoneOffset.UTC),
+        ts = LocalDateTime.parse(ts, tsFormat).format(DateTimeFormatter.ISO_DATE_TIME),
         id = task.toInt,
         user = user,
         shown = ids.toList,

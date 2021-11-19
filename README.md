@@ -130,7 +130,7 @@ Ranking events are stored in `dataset/ranking.jsonl.gz` file in a JSONL format.
     2374,
     104211
   ],
-  "ts": 1636993834,
+  "ts": "2021-11-15T01:30:00.000",
   "user": "90df34e521cc3d53af5f42f5c16ecb60"
 }
 ```
