@@ -26,23 +26,24 @@ case class RankLens(movies: List[Movie], actions: List[Task]) {
 
 object RankLens {
   case class Movie(
-      id: Int,
-      tmdbId: Int,
-      title: String,
-      budget: Long,
-      genres: List[Genre],
-      overview: String,
-      tmdbPopularity: Double,
-      tmdbVoteCount: Long,
-      tmdbVoteAverage: Double,
-      releaseDate: String,
-      revenue: Double,
-      runtime: Int,
-      topActors: List[Cast],
-      director: Option[Cast],
-      writer: Option[Cast],
-      tags: List[String],
-      poster: Option[String]
+                    id: Int,
+                    tmdbId: Int,
+                    title: String,
+                    budget: Long,
+                    genres: List[Genre],
+                    overview: String,
+                    tmdbPopularity: Double,
+                    tmdbVoteCount: Long,
+                    tmdbVoteAverage: Double,
+                    releaseDate: String,
+                    revenue: Double,
+                    runtime: Int,
+                    topActors: List[Cast],
+                    director: Option[Cast],
+                    writer: Option[Cast],
+                    tags: List[String],
+                    poster: Option[String],
+                    description: String
   )
   case class Cast(id: Int, name: String, gender: Int, popularity: Double)
   case class Genre(id: Int, name: String)
@@ -86,7 +87,8 @@ object RankLens {
           .headOption
           .map(c => Cast(c.id, c.name, c.gender, c.popularity)),
         tags = mlMovie.tags,
-        poster = tmdbMovie.poster_path.map(suffix => "https://image.tmdb.org/t/p/original" + suffix)
+        poster = tmdbMovie.poster_path.map(suffix => "https://image.tmdb.org/t/p/original" + suffix),
+        description = tmdbMovie.overview
       )
     }
     val rankedMovies = toloka.tasks.flatMap(_.shown).toSet
